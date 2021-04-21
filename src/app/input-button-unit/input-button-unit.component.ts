@@ -3,14 +3,18 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-input-button-unit',
   template: `
-  <p>
-    input-button-unit works!
-    The title is: {{ title }}
-  </p>
+    <p>
+      input-button-unit works!
+      The title is: {{ title }}
+    </p>
 
-  <input [value]="title">
-  <button>Save</button>
-`,
+    <input [value]="title"
+           (keyup.enter)="changeTitle($event.target.value)">
+
+    <button (click)="changeTitle('Button Clicked!')">
+      Save
+    </button>
+  `,
   styleUrls: ['./input-button-unit.component.scss']
 })
 export class InputButtonUnitComponent implements OnInit {
@@ -19,5 +23,9 @@ export class InputButtonUnitComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeTitle(newTitle: string): void {
+    this.title = newTitle;
   }
 }
