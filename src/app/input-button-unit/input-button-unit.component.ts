@@ -3,26 +3,21 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-input-button-unit',
   template: `
-    <p>
-      input-button-unit works!
-      The title is {{title}}
-    </p>
-  `,
+  <p>
+    input-button-unit works!
+    The title is: {{ title }}
+  </p>
+
+  <input [value]="title">
+  <button>Save</button>
+`,
   styleUrls: ['./input-button-unit.component.scss']
 })
 export class InputButtonUnitComponent implements OnInit {
-  title: string = 'Hello World';
+  title = 'Hello World';
 
-  constructor() {
-    this.changeTitle('My First Angular App');
-
-  }
-  changeTitle(newTitle: string) {
-    this.title = newTitle;
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    this.title = 'Angular CLI Rules!';
   }
-
 }
